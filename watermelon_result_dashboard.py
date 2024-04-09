@@ -24,7 +24,7 @@ def main():
         ripeness_counts = data['ripeness'].value_counts()
         st.pyplot(ripeness_counts.plot.pie(autopct='%1.1f%%'))
     else:
-        st.write("Error: 'ripeness' column not found in the data.")
+        st.write("")
 
 # Run the app
 if __name__ == "__main__":
