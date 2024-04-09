@@ -1,5 +1,2 @@
-streamlit
-pymongo
-pandas
-plotly.express
-matplotlib.pyplot
+import streamlit as st
+import pandas as pd
