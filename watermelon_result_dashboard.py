@@ -15,12 +15,8 @@ def main():
     data = load_data()
     
     # Display the data
-    st.write("Raw data:")
+    st.write("Records")
     st.write(data)
-    
-    # Print out the column names to verify the correct column name
-    st.write("Column names:")
-    st.write(data.columns)
     
     # Create pie chart for ripeness
     st.write("Pie chart for ripeness:")
