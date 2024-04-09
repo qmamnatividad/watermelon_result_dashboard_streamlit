@@ -8,29 +8,18 @@ Original file is located at
 """
 
 import streamlit as st
-import pymongo
 import pandas as pd
-import plotly.express as px
+import matplotlib.pyplot as plt
 
-# Connect to MongoDB
-client = pymongo.MongoClient("mongodb+srv://qmamnatividad:Pn5WCatJeF5tX1b1@cluster0.zrlxpwc.mongodb.net/")
-db = client["watermelon"]
-collection = db["watermelon_result"]
+# Read data from CSV
+df = pd.read_csv('watermelon_result.csv')
 
-# Fetch data from MongoDB and convert it to a DataFrame
-data = pd.DataFrame(list(collection.find()))
+# Display the table
+st.write(df)
 
-# Main title
-st.title("Data Visualization from MongoDB")
-
-# Display the data table
-st.subheader("Data Table")
-st.write(data)
-
-# Group data for pie chart
-data_grouped = data.groupby('category').size().reset_index(name='count')
-
-# Plot pie chart
-st.subheader("Pie Chart")
-fig = px.pie(data_grouped, values='count', names='category', title='Data Distribution by Category')
-st.plotly_chart(fig)
+# Create a pie chart for ripeness
+ripeness_counts = df['ripeness'].value_counts()
+fig, ax = plt.subplots()
+ax.pie(ripeness_counts, labels=ripeness_counts.index, autopct='%1.1f%%')
+ax.set_title('Ripeness Distribution')
+st.pyplot(fig)
