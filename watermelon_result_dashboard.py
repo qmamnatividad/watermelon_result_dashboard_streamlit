@@ -15,7 +15,7 @@ import plotly.express as px
 # Connect to MongoDB
 client = pymongo.MongoClient("mongodb+srv://qmamnatividad:Pn5WCatJeF5tX1b1@cluster0.zrlxpwc.mongodb.net/")
 db = client["watermelon"]
-collection = db["watermelon_results"]
+collection = db["watermelon_result"]
 
 # Fetch data from MongoDB and convert it to a DataFrame
 data = pd.DataFrame(list(collection.find()))
