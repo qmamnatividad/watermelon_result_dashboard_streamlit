@@ -4,12 +4,12 @@ import pandas as pd
 # Load the CSV data
 @st.cache
 def load_data():
-    data = pd.read_csv("your_csv_file.csv")
+    data = pd.read_csv("watermelon_result.csv")
     return data
 
 # Create a Streamlit app
 def main():
-    st.title("Fruit Data")
+    st.title("Watermelon Ripeness Result")
     
     # Load the data
     data = load_data()
