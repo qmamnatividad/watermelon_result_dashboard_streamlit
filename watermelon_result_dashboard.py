@@ -18,10 +18,17 @@ def main():
     st.write("Raw data:")
     st.write(data)
     
+    # Print out the column names to verify the correct column name
+    st.write("Column names:")
+    st.write(data.columns)
+    
     # Create pie chart for ripeness
     st.write("Pie chart for ripeness:")
-    ripeness_counts = data['ripeness'].value_counts()
-    st.pyplot(ripeness_counts.plot.pie(autopct='%1.1f%%'))
+    if 'ripeness' in data.columns:
+        ripeness_counts = data['ripeness'].value_counts()
+        st.pyplot(ripeness_counts.plot.pie(autopct='%1.1f%%'))
+    else:
+        st.write("Error: 'ripeness' column not found in the data.")
 
 # Run the app
 if __name__ == "__main__":
