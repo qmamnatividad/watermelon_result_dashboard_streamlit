@@ -19,7 +19,7 @@ def main():
     st.write(data)
     
     # Create pie chart for ripeness
-    st.write("Ripeness Donut")
+    st.write("Ripeness")
     if 'ripeness' in data.columns:
         ripeness_counts = data['ripeness'].value_counts()
         st.pyplot(ripeness_counts.plot.pie(autopct='%1.1f%%'))
